@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "189102bb-010d-4dcd-bbd2-1f8fa9686dc1",
+		"name": "CustomValidationAttributes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20996595"
+	},
+	"item": [
+		{
+			"name": "test-letters-only",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/test-letters-only?text=ValidInput",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"test-letters-only"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "ValidInput",
+							"description": "Should_BeValid"
+						},
+						{
+							"key": "text",
+							"value": "validinput",
+							"description": "Should_BeValid",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "VALIDINPUT",
+							"description": "Should_BeValid",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "Invalid Input",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "invalidinput0",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "invalid_input",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-of-legal-age",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/test-of-legal-age?value=18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"test-of-legal-age"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "18",
+							"description": "Should_BeValid"
+						},
+						{
+							"key": "value",
+							"value": "19",
+							"description": "Should_BeValid",
+							"disabled": true
+						},
+						{
+							"key": "value",
+							"value": "100",
+							"description": "Should_BeValid",
+							"disabled": true
+						},
+						{
+							"key": "value",
+							"value": "17",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						},
+						{
+							"key": "value",
+							"value": "16",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						},
+						{
+							"key": "value",
+							"value": "-1",
+							"description": "Should_BeInvalid",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ArthurDent\",\n  \"age\": 42\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/test-user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"test-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
